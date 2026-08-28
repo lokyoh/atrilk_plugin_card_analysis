@@ -1,5 +1,5 @@
 name: 小程序解析 # 服务名
 docs: 解析QQ小程序卡片。 # 插件描述
 author: l_o_o_k # 作者
-version: 0.0.1 # 插件版本号
+version: 0.0.2 # 插件版本号
 repo: https://github.com/lokyoh/atrilk_plugin_card_analysis # 插件的仓库地址
