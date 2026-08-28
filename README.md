@@ -1,10 +1,6 @@
-# atrilk_plugin_helloworld
+# atrilk_plugin_card_analysis
 
-ATRI-LK 插件模板。
+ATRI-LK 插件:解析QQ小程序卡片。
 
-> 这个项目是 [ATRI-LK](https://github.com/lokyoh/ATRI-LK) 的插件模板.
-
-# Supports
-
-- [ATRI-LK 项目](https://github.com/lokyoh/ATRI-LK)
-- [ATRI-LK 插件开发文档](https://lokyoh.github.io/ATRI-LK-docs/develop/)
+### 功能:
+  - 解析B站视频
