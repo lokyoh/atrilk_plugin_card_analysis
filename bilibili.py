@@ -1,6 +1,7 @@
-from bilibili_api import parse_link
+from bilibili_api import Credential, parse_link
 from bilibili_api.video import Video
 
+from ATRI.exceptions import PluginError
 from ATRI.message import MessageBuilder
 
 from .utils import trans_time
@@ -28,8 +29,10 @@ class VideoInfo:
         self.stat = VideoStat(info["stat"])
 
 
-async def get_bilibili_card_info(url, sender: str = "") -> MessageBuilder:
-    obj, resource_type = await parse_link(url)
+async def get_bilibili_card_info(
+    url: str, sender: str = "", credential: Credential | None = None
+) -> MessageBuilder:
+    obj, _ = await parse_link(url, credential=credential)
     if isinstance(obj, Video):
         info = await obj.get_info()
         info = VideoInfo(info)
@@ -43,4 +46,4 @@ UP:{info.owner} | {info.bvid} | 时长:{trans_time(info.duration)}
         message.image(info.pic)
         return message
     else:
-        raise ValueError("不是视频")
+        raise PluginError("不是视频")
