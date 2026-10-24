@@ -11,7 +11,7 @@ from .bilibili import get_bilibili_card_info
 from .config import BilibiliConfig
 
 plugin = Service(
-    "小程序解析", "解析QQ小程序卡片。", "0.0.3", Service.ServiceType.FUNCTION, "l_o_o_k"
+    "小程序解析", "解析QQ小程序卡片。", "0.0.4", Service.ServiceType.FUNCTION, "l_o_o_k"
 )
 config = plugin.add_plugin_config(BilibiliConfig)
 
@@ -41,7 +41,7 @@ async def _(event: GroupMessageEvent):
         if segment.type == "text":
             text = segment.data["text"]
             pattern = re.compile(
-                r"https?://(?:www\.)?(?:bilibili\.com/video/|b23\.tv/)[a-zA-Z0-9]+(?=\?|$|\s)",
+                r"https?://(?:www\.)?(?:bilibili\.com/video/|b23\.tv/)[a-zA-Z0-9]+(?=[/?]|\s|$)",
                 re.IGNORECASE,
             )
             match = pattern.search(text)
